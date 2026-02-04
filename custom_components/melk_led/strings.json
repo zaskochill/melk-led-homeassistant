@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Select MELK LED Strip",
+        "description": "Select your MELK LED Strip device from the list or add manually",
+        "data": {
+          "mac": "Device",
+          "name": "Device Name"
+        }
+      },
+      "manual": {
+        "title": "Add MELK LED Strip Manually",
+        "description": "Enter the MAC address of your MELK LED Strip",
+        "data": {
+          "mac": "MAC Address",
+          "name": "Device Name"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Confirm MELK LED Strip",
+        "description": "Do you want to add {name} ({address})?"
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to device",
+      "invalid_discovery_info": "Invalid discovery information",
+      "not_supported": "Device not supported",
+      "already_in_progress": "Configuration already in progress"
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "cannot_connect": "Failed to connect to device",
+      "invalid_discovery_info": "Invalid discovery information",
+      "not_supported": "Device not supported",
+      "already_in_progress": "Configuration already in progress"
+    }
+  },
+  "options": {
+    "step": {
+      "user": {
+        "title": "MELK LED Strip Options",
+        "description": "Configure advanced options",
+        "data": {
+          "reset": "Reset connection on errors",
+          "delay": "Reconnection delay (seconds)"
+        }
+      }
+    }
+  }
+}

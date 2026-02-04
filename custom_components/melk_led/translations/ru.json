@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Выберите MELK LED ленту",
+        "description": "Выберите устройство из списка или добавьте вручную",
+        "data": {
+          "mac": "Устройство",
+          "name": "Название устройства"
+        }
+      },
+      "manual": {
+        "title": "Добавить MELK LED ленту вручную",
+        "description": "Введите MAC адрес вашей MELK LED ленты",
+        "data": {
+          "mac": "MAC адрес",
+          "name": "Название устройства"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Подтвердите MELK LED ленту",
+        "description": "Хотите добавить {name} ({address})?"
+      }
+    },
+    "error": {
+      "cannot_connect": "Не удалось подключиться к устройству",
+      "invalid_discovery_info": "Неверная информация об обнаружении",
+      "not_supported": "Устройство не поддерживается",
+      "already_in_progress": "Настройка уже выполняется"
+    },
+    "abort": {
+      "already_configured": "Устройство уже настроено",
+      "cannot_connect": "Не удалось подключиться к устройству",
+      "invalid_discovery_info": "Неверная информация об обнаружении",
+      "not_supported": "Устройство не поддерживается",
+      "already_in_progress": "Настройка уже выполняется"
+    }
+  },
+  "options": {
+    "step": {
+      "user": {
+        "title": "Настройки MELK LED ленты",
+        "description": "Настройте дополнительные параметры",
+        "data": {
+          "reset": "Сбрасывать соединение при ошибках",
+          "delay": "Задержка переподключения (секунды)"
+        }
+      }
+    }
+  }
+}

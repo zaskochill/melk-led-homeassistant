@@ -1,0 +1,25 @@
+{
+  "domain": "melk_led",
+  "name": "MELK LED Strip",
+  "bluetooth": [
+    { "local_name": "ELK-BLEDDM*" },
+    { "local_name": "ELK-BULB2*" },
+    { "local_name": "ELK-BULB*" },
+    { "local_name": "ELK-BLE*" },
+    { "local_name": "MELK*" },
+    { "local_name": "LEDBLE*" },
+    { "local_name": "ELK-LAMPL*" }
+  ],
+  "codeowners": ["@zaskochill"],
+  "config_flow": true,
+  "dependencies": ["bluetooth"],
+  "documentation": "https://github.com/zaskochill/melk-led-homeassistant",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/zaskochill/melk-led-homeassistant/issues",
+  "requirements": [
+    "bleak-retry-connector>=3.5.0",
+    "bleak>=0.22.2"
+  ],
+  "version": "1.0.0"
+}
