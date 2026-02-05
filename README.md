@@ -15,8 +15,7 @@ Home Assistant integration for MELK LED Strip controllers (JSK-P22 and similar) 
 - ✅ Adjustable sensitivity and effect speed
 - ✅ State persistence after restart
 - ✅ Automatic Bluetooth reconnection
-- ✅ **Effect memory** (restores last effect on power on)
-- ✅ **No flickering** when switching effects
+- ✅ Effect memory (restores last effect on power on)
 
 ## Supported Devices
 
@@ -89,16 +88,6 @@ The integration remembers your last effect and restores it when you turn the lig
 - This is normal for Bluetooth devices (they can't send state back)
 - The integration saves the last state and restores it automatically
 - If state is incorrect, simply turn off and on the light
-
-## Technical Details
-
-- **Protocol:** Bluetooth Low Energy (BLE)
-- **Communication:** One-way commands (no feedback from device)
-- **State Management:** Local storage with automatic restore
-
-## Credits
-
-Based on the ELK-BLEDOM protocol analysis and reverse engineering.
 
 ## License
 
