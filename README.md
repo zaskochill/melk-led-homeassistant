@@ -5,14 +5,6 @@
 
 Home Assistant integration for MELK LED Strip controllers (JSK-P22 and similar) via Bluetooth.
 
-## 🎉 What's New in v1.0.2
-
-- 🐛 **Fixed:** Eliminated flickering/flashing of static color when turning on effects
-- ✨ **Improved:** Smoother effect transitions
-- 🔧 **Enhanced:** Better state restoration logic
-
-See [CHANGELOG.md](CHANGELOG.md) for full details.
-
 ## Features
 
 - ✅ RGB color control (16 million colors)
