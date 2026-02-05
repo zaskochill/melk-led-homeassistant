@@ -240,8 +240,6 @@ class BLEDOMInstance:
     async def turn_on(self):
         """Turn on the light - команда: 7E 04 04 01 FF FF FF 00 EF"""
         await self._write(TURN_ON_CMD)
-        await asyncio.sleep(0.3)
-        await self.set_color(self._rgb_color, self._brightness)
         self._is_on = True
         await self._async_save_state()
 

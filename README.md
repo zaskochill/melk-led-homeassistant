@@ -1,21 +1,30 @@
 # MELK LED Strip Integration for Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 
 Home Assistant integration for MELK LED Strip controllers (JSK-P22 and similar) via Bluetooth.
+
+## 🎉 What's New in v1.0.2
+
+- 🐛 **Fixed:** Eliminated flickering/flashing of static color when turning on effects
+- ✨ **Improved:** Smoother effect transitions
+- 🔧 **Enhanced:** Better state restoration logic
+
+See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 ## Features
 
 - ✅ RGB color control (16 million colors)
 - ✅ Brightness adjustment
-- ✅ 50+ built-in effects
+- ✅ **213 built-in effects** + **28 scenes** (241 total!)
 - ✅ Microphone mode with music sync
 - ✅ 8 EQ presets for microphone mode
-- ✅ Adjustable sensitivity
-- ✅ Effect speed control
+- ✅ Adjustable sensitivity and effect speed
 - ✅ State persistence after restart
 - ✅ Automatic Bluetooth reconnection
-- ✅ Effect memory (restores last effect on power on)
+- ✅ **Effect memory** (restores last effect on power on)
+- ✅ **No flickering** when switching effects
 
 ## Supported Devices
 
@@ -65,12 +74,11 @@ Your device will be added with the following entities:
 - Adjust brightness
 
 ### Effects
-Select from 50+ built-in effects including:
-- Water effects
-- Rainbow effects
-- Breathing effects
-- Transition effects
-- And many more!
+Select from **241 effects** including:
+- **213 RGB effects:** Water, Rainbow, Breathing, Transition, Running, Curtain, Flow, Tail, and more!
+- **28 special scenes:** Sunrise, Sunset, Birthday, Candlelight, Fireworks, Party, Christmas, and more!
+
+The integration remembers your last effect and restores it when you turn the light back on.
 
 ### Microphone Mode (Music Sync)
 1. Enable the "Microphone Mode" switch

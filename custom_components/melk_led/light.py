@@ -158,7 +158,7 @@ class MELKLEDLight(RestoreEntity, LightEntity):
         else:
             # Нет эффекта - восстанавливаем статичный цвет
             _LOGGER.info("Restoring static color after microphone")
-            await self._instance.set_color(self._instance.rgb_color)
+            await self._instance.set_color(self._instance.rgb_color, self._instance.brightness)
             self._current_effect_key = "none"
         
         self.async_write_ha_state()
@@ -171,6 +171,10 @@ class MELKLEDLight(RestoreEntity, LightEntity):
         if not kwargs:
             _LOGGER.info("Turning on without params - restoring last state")
             await self._instance.turn_on()
+            
+            # Небольшая задержка после команды включения
+            import asyncio
+            await asyncio.sleep(0.2)
             
             # Восстанавливаем последний эффект или цвет
             if self._current_effect_key and self._current_effect_key != "none":
@@ -190,7 +194,7 @@ class MELKLEDLight(RestoreEntity, LightEntity):
             else:
                 # Нет эффекта - восстанавливаем статичный цвет
                 _LOGGER.info("Restoring static color")
-                await self._instance.set_color(self._instance.rgb_color)
+                await self._instance.set_color(self._instance.rgb_color, self._instance.brightness)
             
             self.async_write_ha_state()
             return
@@ -217,17 +221,16 @@ class MELKLEDLight(RestoreEntity, LightEntity):
                                   switch_entity_id, 
                                   [e for e in self.hass.states.async_entity_ids() if 'microphone' in e])
         
+        # Включаем свет (только команда включения, без цвета)
         await self._instance.turn_on()
+        
+        # Небольшая задержка после команды включения
+        import asyncio
+        await asyncio.sleep(0.2)
 
-        if ATTR_BRIGHTNESS in kwargs:
-            await self._instance.set_brightness(kwargs[ATTR_BRIGHTNESS])
-
-        if ATTR_RGB_COLOR in kwargs:
-            await self._instance.set_color(kwargs[ATTR_RGB_COLOR])
-            self._current_effect_key = "none"
-
+        # Теперь применяем параметры в правильном порядке
         if ATTR_EFFECT in kwargs:
-            # Пользователь присылает красивое имя
+            # Сначала эффект (он имеет приоритет)
             pretty_name = kwargs[ATTR_EFFECT]
             effect_key = self._pretty2key.get(pretty_name, pretty_name)
             
@@ -246,6 +249,15 @@ class MELKLEDLight(RestoreEntity, LightEntity):
                 await self._instance.set_effect(effect_id)
                 self._current_effect_key = effect_key
                 _LOGGER.debug("Applied effect: key=%s id=0x%02X", effect_key, effect_id)
+        elif ATTR_RGB_COLOR in kwargs:
+            # Если нет эффекта, но есть цвет - применяем цвет
+            rgb = kwargs[ATTR_RGB_COLOR]
+            brightness = kwargs.get(ATTR_BRIGHTNESS, self._instance.brightness)
+            await self._instance.set_color(rgb, brightness)
+            self._current_effect_key = "none"
+        elif ATTR_BRIGHTNESS in kwargs:
+            # Только яркость - применяем к текущему состоянию
+            await self._instance.set_brightness(kwargs[ATTR_BRIGHTNESS])
 
         self.async_write_ha_state()
 
